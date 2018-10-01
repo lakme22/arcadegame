@@ -28,6 +28,8 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+
+var player= new player();
 var player= function(x, y){
     this.x= x;
     this.y= y;
@@ -37,6 +39,7 @@ var player= function(x, y){
 player.prototype.update= function(dt){
 
 };
+
 
 player.prototype.render= function(){
     ctx.drawImage(Resources.get(this.player), this.x, this.y);
