@@ -1,39 +1,32 @@
 // Enemies our player must avoid
-class Hero {
+class Hero{
     constructor(){
         this.sprite= 'images/char-boy.png';
         this.step= 101;
         this.jump= 83;
         this.startX= this.step*2;
-        this.startY= (this.jump*4)+55;
+        this.startY= (this.jump*4) + 55;
         this.x= this.startX;
         this.y= this.startY;
-        this.victory= false;
-     }
-        //reset
-    reset(){
-        this.x= this.startX;
-        this.y= this.startY; 
     }
-       
         //draw the hero sprite
         render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-     }
-//does hero collide with x or y
-update(){
-    for(let enemy of allEnemies){
-        if(this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)){
-         alert('try again') ;  
-        this.reset();
     }
-}
-//win condition
-     if(this.y === 55){
-     this.victory= true;
-}
-}
-    
+    reset(){
+        this.x= this.startX;
+        this.y= this.startY;
+    }
+
+    //update
+    update(){
+        for(let enemy of allEnemies){
+            if(this.y === enemy.y&&(enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)){
+               this.reset();
+            }
+        }
+    }
+
     //update hero's x and y prototype
     handleInput(input){
       switch(input){
@@ -59,11 +52,8 @@ update(){
           break;
         }
     }
-    
-        
-     }
 
-
+}
 
 
 var Enemy = function( x, y, speed) {
@@ -81,8 +71,6 @@ var Enemy = function( x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
 };
 
-
-
 const player= new Hero();
 const bug1= new Enemy(-101, 0, 200);
 const bug2= new Enemy(-101, 83, 300);
@@ -91,7 +79,6 @@ const allEnemies= [];
 allEnemies.push(bug1, bug2, bug3);
 console.log(allEnemies);
 
-
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -99,7 +86,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    if(this.x< this.boundary){
+    if(this.x<this.boundary){
         this.x += this.speed * dt;
 
     }
@@ -135,3 +122,4 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
