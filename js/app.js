@@ -13,15 +13,18 @@ class Hero{
         render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    //reset values
     reset(){
         this.x= this.startX;
         this.y= this.startY;
     }
 
-    //update
+    //update function for collision
     update(){
         for(let enemy of allEnemies){
-            if(this.y === enemy.y&&(enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)){
+            if(this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && 
+                                      enemy.x < this.x + this.step/2))
+            {
                this.reset();
             }
         }
@@ -37,30 +40,22 @@ class Hero{
           break;
           case 'up':
           if(this.y > 0){
-          this.y -= this.jump;
+             this.y -= this.jump;
           }
           break;
           case 'right':
           if(this.x < this.step *4){
-              this.x +=this.step;
+             this.x +=this.step;
           }
           break;
           case 'down':
           if(this.y<this.jump *4){
-          this.y += this.jump;
+             this.y += this.jump;
         }
           break;
         }
-        if (this.y < 0) {
-        setTimeout(() => {
-            this.x = 202;
-            this.y = 405;
-        }, 800);
-    };
-    }
-
+      }
 }
-
 
 var Enemy = function( x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -91,10 +86,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-
     if(this.x<this.boundary){
         this.x += this.speed * dt;
-
     }
     else{
         this.x = this.resetPos;
