@@ -51,6 +51,12 @@ class Hero{
         }
           break;
         }
+        if (this.y < 0) {
+        setTimeout(() => {
+            this.x = 202;
+            this.y = 405;
+        }, 800);
+    };
     }
 
 }
