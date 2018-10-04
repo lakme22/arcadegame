@@ -54,8 +54,16 @@ class Hero{
         }
           break;
         }
+     // Once the user reaches the top of the page; the water, the user is
+    // Instantly reset to the starting position
+    if (this.y < 0) {
+        setTimeout(() => {
+            this.x = 202;
+            this.y = 405;
+        }, 800);
+    };
       }
-}
+    }
 
 var Enemy = function( x, y, speed) {
     // Variables applied to each of our instances go here,
