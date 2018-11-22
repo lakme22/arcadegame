@@ -12,3 +12,8 @@ For detailed instructions on how to get started, check out this [guide](https://
 * Use the arrow keys(keyboard) to move the player
 * Don't worry if player got colloided with the enemies,the Game will get restarted after every collision
 * Once the player reached the water, he wins!
+
+### `UDACITY REVIEW`
+
+![1](https://user-images.githubusercontent.com/36790663/48882218-2ff90780-ee3f-11e8-91f8-da76e27b40c4.PNG)
+![2](https://user-images.githubusercontent.com/36790663/48882219-30919e00-ee3f-11e8-8bc4-f8f8a5e43c6b.PNG)
